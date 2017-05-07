@@ -26,6 +26,7 @@ include("functions.php");
 <?php include("style.php");  ?>
 </head>
 <body>
+<p>Редактирование слайдера</p>
 <ul id="hide_deletw_btn" type="none">
 <?php $sql = "SELECT * FROM images ORDER BY id";
     $result = mysqli_query($db, $sql);
@@ -35,17 +36,22 @@ include("functions.php");
 
     
     echo "<li><article><img src='images/".$row['image']."'></article>"; ?> 
- <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><img src="delete.png" id="main_slaider_delete_pfoto"></div></a></li>
+ <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><img src="delete1.png" id="main_slaider_delete_pfoto"></div></a>
 
 
 <form method="post" action="edit_img.php?id=<?php echo urlencode($row["id"]); ?>" enctype="multipart/form-data" >
 <?php	
-	echo "<input type=\"file\" name=\"image\">";
+	echo "<div class=\"file-upload\">";
+	echo "<label>";
+	echo "<input type=\"file\" name=\"image\" onchange=\"getFileName ();\" id=\"uploaded-file\">";
+	echo "<span>Выберите файл</span>";
+	echo "</label>";	
+	echo "<div id=\"file-name\"></div></li>";
+
+	//echo "<input type=\"file\" name=\"image\">";
 	echo "<input type=\"submit\" name=\"update\" value=\"Обновить картинку\">";
     echo "</form>"; ?>
-   
-   <?php  
-    }  echo "</ul>" ?>
+   <?php }  echo "</ul>" ?>
 
 
 
@@ -53,9 +59,15 @@ include("functions.php");
 	<form method="post" action="slaider_img.php" enctype="multipart/form-data" >
 	<input type="file" name="image">
 	<input type="submit" name="upload" value="Загрузить картинку" id="btt_upload_main_form">
-    </form></div>
+    </form></div><br/><br/><br/><br/><br/>
    
 	
+	<script type="text/javascript">
+	function getFileName () {
+	var file = document.getElementById ('uploaded-file').value;
+	document.getElementById ('file-name').innerHTML = 'Имя файла: ' + file;
+	}
 
+</script>
 </body>
 </html>

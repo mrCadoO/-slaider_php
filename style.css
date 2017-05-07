@@ -21,7 +21,7 @@ display: inline-grid;
 	height: 24px;
 	 margin-top: -205px;
 	 position: absolute;
-	margin-left: 528px; 
+	margin-left: 527px; 
 	
 }
 
@@ -33,6 +33,7 @@ display: inline-grid;
 }
 	
 #hide_deletw_btn li{
+
 	width: 0px;
 }
 
@@ -126,3 +127,63 @@ label, a{ /*при наведении на стрелки или переклю�
 #controls label{ /*прозрачность стрелок при отводе курсора*/
 	transition: opacity 0.2s ease-out;
 }
+
+
+
+
+.file-upload input[type="file"]{
+display: none;/* скрываем input file */
+}
+
+.file-upload {
+position: absolute;
+text-align: center;
+width: 350px;
+height: 40px;
+background: rgb(37, 35, 35, 0.0);
+margin-left: 200px;
+margin-top: -45px;
+}
+
+
+ul li:hover .file-upload  {
+background: rgba(37, 35, 35, 0.7);
+}
+
+ul li:hover .file-upload span{
+	visibility: visible;
+}
+
+.file-upload:hover span{
+	color: #fff000;
+}
+
+
+/* стиль текста на кнопке*/
+.file-upload span {
+line-height: 40px;
+font-weight:bold;
+visibility: hidden;
+
+}
+
+
+
+.file-upload label {
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+cursor: pointer;
+}
+
+/* стиль текста на кнопке*/
+
+
+
+
+
+
+
