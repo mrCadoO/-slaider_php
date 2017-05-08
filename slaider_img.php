@@ -34,22 +34,28 @@ include("functions.php");
     	
 
 
-    
-    echo "<li><article><img src='images/".$row['image']."'></article>"; ?> 
- <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><img src="delete1.png" id="main_slaider_delete_pfoto"></div></a>
 
+    echo "<li><div class=\"output_img_for_adm\"><article><img src='images/".$row['image']."'></article></div>"; ?> 
+ <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><span>x</span></div></a>
+	</div>
 
 <form method="post" action="edit_img.php?id=<?php echo urlencode($row["id"]); ?>" enctype="multipart/form-data" >
 <?php	
 	echo "<div class=\"file-upload\">";
 	echo "<label>";
-	echo "<input type=\"file\" name=\"image\" onchange=\"getFileName ();\" id=\"uploaded-file\">";
+	echo "<input type=\"file\" name=\"image\" onchange=\"getFileName();\" id=\"uploaded-file\">";
 	echo "<span>Выберите файл</span>";
 	echo "</label>";	
-	echo "<div id=\"file-name\"></div></li>";
+	echo "<div id=\"file-name\"></div></div>";
 
-	//echo "<input type=\"file\" name=\"image\">";
+
+	echo "<div class=\"btn_send_file_on_server\">";
+	echo "<label>";
 	echo "<input type=\"submit\" name=\"update\" value=\"Обновить картинку\">";
+	echo "<span><div class=\"btn_send_file_label\">></span>";
+	echo "</label></li>";
+
+
     echo "</form>"; ?>
    <?php }  echo "</ul>" ?>
 

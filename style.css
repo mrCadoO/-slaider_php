@@ -1,189 +1,215 @@
-.image img{
+	.image img{
 	width: 942px;
 	height: 400px;
-}
+	}
+
 	#slider { /*положение слайдера*/
-    position: relative;
+	position: relative;
 	text-align: center;
-    top: 10px;
-}
+	top: 10px;
+	}
 
-#slaider_form_adm{
-border: 2px solid #000;
-display: inline-grid;
-}
+	#slaider_form_adm{
+	border: 2px solid #000;
+	display: inline-grid;
+	}
 
-#btt_upload_main_form{
-	width: 200px;
-}
-#main_slaider_delete_pfoto{
+	#gmb {
+	position: absolute;
+	background: rgba(50, 48, 45, 0.0);
 	width: 24px;
 	height: 24px;
-	 margin-top: -205px;
-	 position: absolute;
-	margin-left: 527px; 
-	
-}
+	margin-top: -196px;
+	margin-left: 511px;
+	text-align: center;
+	color: #fff;
+	}
 
-#gmb {
-	filter: alpha (Opacity=0);
+	ul li:hover #gmb{
+	background: rgba(50, 48, 45, 1.0);
+	}
 
-       opacity: 0.0;
+	#gmb span{
+	visibility: hidden;
+	}
 
-}
-	
-#hide_deletw_btn li{
+	ul li:hover #gmb span{
+	visibility: visible;
+	}
 
-	width: 0px;
-}
+ 	ul li #gmb:hover {
+	background: rgba(50, 48, 45, 1.0);
+	}
 
+	ul li #gmb:hover  span{
+	color: #fff000;
+	}
 
-
- ul li:hover #gmb {
-	opacity: 3.0;
-}
-
-
-
-
-
+	#hide_deletw_btn li  {
+	width: 0;
+	}
 
 
+	.file-upload input[type="file"]{
+	display: none;
+	}
 
- ul img{
+	.file-upload {
+	position: absolute;
+	text-align: center;
+	width: 300px;
+	height: 40px;
+	background: rgb(37, 35, 35, 0.0);
+	margin-left: 200px;
+	margin-top: -45px;
+	}
+
+	ul li:hover .file-upload  {
+	background: rgba(37, 35, 35, 0.7);
+	}
+
+	ul li:hover .file-upload span{
+	visibility: visible;
+	}
+
+	.file-upload:hover span{
+	color: #fff000;
+	}
+
+	.file-upload span {
+	line-height: 40px;
+	font-weight:bold;
+	visibility: hidden;
+	}
+
+	.file-upload label {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	}
+
+ 	.output_img_for_adm img{
 	width: 350px;
 	height: 200px;
 	margin-top: 17px;
 	margin-left: 200px;
-}
+	}
+	
+	.btn_send_file_on_server input[type="submit"]{
+	display: none;
+	}
+	
+	.btn_send_file_on_server{
+	position: absolute;
+	text-align: center;
+	width: 48px;
+	height: 40px;
+	background: rgb(37, 35, 35, 0.0);
+	margin-left: 500px;
+	margin-top: -45px;
+	}
+	
+	ul li:hover .btn_send_file_on_server  {
+	background: rgba(37, 35, 35, 0.7);
+	}
+	
+	span .btn_send_file_label{
+	visibility: hidden;
+	}
 
-#slider{ /*центровка слайдера*/
+	ul li:hover .btn_send_file_label  {
+	visibility: visible;
+	}
+
+	.btn_send_file_label:hover{
+	color: #fff000;
+	}
+
+
+
+
+
+
+	
+
+
+		
+			
+
+
+
+
+	#slider{ /*центровка слайдера*/
 	margin: 0 auto;
-}
+	}
 
-#slides article{ /*все изображения справа друг от доруга*/
+	#slides article{ /*все изображения справа друг от доруга*/
 	width: 5%;
 	float: left;
-}
+	}
 
-#overflow{ /*сркывает все, что находится за пределами этого блока*/
+	#overflow{ /*сркывает все, что находится за пределами этого блока*/
 	width: 100%;
 	overflow: hidden;
-}
+	}
 
-.image article img{ /*размер изображений слайдера*/
+	.image article img{ /*размер изображений слайдера*/
 	width: 100%;
-}
+	}
 
-#desktop:checked ~ #slider{ /*размер всего слайдера*/
+	#desktop:checked ~ #slider{ /*размер всего слайдера*/
 	max-width: 942px; /*максимальнная длинна*/
-}
+	}
 
-label, a{ /*при наведении на стрелки или переключатели - курсор изменится*/
+	label, a{ /*при наведении на стрелки или переключатели - курсор изменится*/
 	cursor: pointer;
-}
+	}
 
-.all input{ /*скрывает стандартные инпуты (чекбоксы) на странице*/
+	.all input{ /*скрывает стандартные инпуты (чекбоксы) на странице*/
 	display: none;
-}
+	}
 
-#slides .image{ /*устанавливает общий размер блока с изображениями*/
+	#slides .image{ /*устанавливает общий размер блока с изображениями*/
 	width: 2000%;
 	line-height: 0; 
-} 
+	} 
 
-#controls{ /*положение блока всех управляющих элементов*/
+	#controls{ /*положение блока всех управляющих элементов*/
 	margin: -25% 0 0 0;
 	width: 100%;
 	height: 50px;
-}
+	}
 
-#active label{ /*стиль отдельного переключателя*/
+	#active label{ /*стиль отдельного переключателя*/
 	border-radius: 10px; /*скругление углов*/
 	display: inline-block; /*расположение в строку*/
 	width: 15px;
 	height: 15px;
 	background: #bbb;
-}
+	}
 
-#active{ /*расположение блока с переключателями*/
+	#active{ /*расположение блока с переключателями*/
 	margin: 23% 0 0;
 	text-align: center;
-}
+	}
 
-#active label:hover{ /*поведение чекбокса при наведении*/
+	#active label:hover{ /*поведение чекбокса при наведении*/
 	background: #76c8ff;
 	border-color: #777 !important; /*выполнение в любом случае*/
-}
+	}
 
-#slides .image{ /*анимация пролистывания изображений*/
+	#slides .image{ /*анимация пролистывания изображений*/
 	transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-}
+	}
 
-#controls label:hover{ /*прозрачность стрелок при наведении*/
+	#controls label:hover{ /*прозрачность стрелок при наведении*/
 	opacity: 0.6;
-}
+	}
 
-#controls label{ /*прозрачность стрелок при отводе курсора*/
+	#controls label{ /*прозрачность стрелок при отводе курсора*/
 	transition: opacity 0.2s ease-out;
-}
-
-
-
-
-.file-upload input[type="file"]{
-display: none;/* скрываем input file */
-}
-
-.file-upload {
-position: absolute;
-text-align: center;
-width: 350px;
-height: 40px;
-background: rgb(37, 35, 35, 0.0);
-margin-left: 200px;
-margin-top: -45px;
-}
-
-
-ul li:hover .file-upload  {
-background: rgba(37, 35, 35, 0.7);
-}
-
-ul li:hover .file-upload span{
-	visibility: visible;
-}
-
-.file-upload:hover span{
-	color: #fff000;
-}
-
-
-/* стиль текста на кнопке*/
-.file-upload span {
-line-height: 40px;
-font-weight:bold;
-visibility: hidden;
-
-}
-
-
-
-.file-upload label {
-display: block;
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-cursor: pointer;
-}
-
-/* стиль текста на кнопке*/
-
-
-
-
-
-
-
+	}
