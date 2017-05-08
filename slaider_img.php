@@ -1,5 +1,5 @@
 <?php
-global $kol_swich;
+global $kol_swich;global $target;
 include("functions.php");
 	conection();
 	$file_types = array('png', 'jpg', 'jpeg', 'xlsx', 'xls', 'doc', 'docx', 'pdf', 'csv');	
@@ -8,6 +8,7 @@ include("functions.php");
 		$image = $_FILES['image']['name'];
 		$image1 = validate_type_file($image);
 			if(($image == null) || (!in_array( $image1, $file_types))) {
+
 			redirect_to("slaider_img.php");
 			}
 		$sql = "INSERT INTO images (image) VALUES ('$image')";
@@ -16,7 +17,18 @@ include("functions.php");
 		redirect_to("slaider_img.php");
 		} 
 		kol_switch();
+
+
+?> 
+
+<?php
+		if(isset($_FILES['image']))
+	$target = "images/".basename($_FILES['image']['name']);
+	echo $target;
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +56,7 @@ include("functions.php");
 	echo "<div class=\"file-upload\">";
 	echo "<label>";
 	echo "<input type=\"file\" name=\"image\" onchange=\"getFileName();\" id=\"uploaded-file\">";
+
 	echo "<span>Выберите файл</span>";
 	echo "</label>";	
 	echo "<div id=\"file-name\"></div></div>";
@@ -52,7 +65,7 @@ include("functions.php");
 	echo "<div class=\"btn_send_file_on_server\">";
 	echo "<label>";
 	echo "<input type=\"submit\" name=\"update\" value=\"Обновить картинку\">";
-	echo "<span><div class=\"btn_send_file_label\">></span>";
+	echo "<span><div class=\"btn_send_file_label\"></div></span>";
 	echo "</label></li>";
 
 
@@ -68,12 +81,12 @@ include("functions.php");
     </form></div><br/><br/><br/><br/><br/>
    
 	
-	<script type="text/javascript">
+<!--	<script type="text/javascript">
 	function getFileName () {
 	var file = document.getElementById ('uploaded-file').value;
 	document.getElementById ('file-name').innerHTML = 'Имя файла: ' + file;
 	}
 
-</script>
+</script> -->
 </body>
 </html>
