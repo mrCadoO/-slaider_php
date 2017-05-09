@@ -22,20 +22,6 @@ $current_file_type = substr(strrchr($file, '.'), 1);
 return $current_file_type;
 }
 
-  function session_type($session_type){
-   session_start();
-   if ($session_type = 'errors'){
-   return  $_SESSION['$session_type'] = 'Ошибка';
-    } else {
-    if($session_type = 'complate'){
-    		return $_SESSION['$session_type'] = 'Все работает';
-    	}
-    }
-    return $_SESSION['$session_type'] = 'Все работает';
-    }
-
-
-
   function confirm_query ($result_set){
 if (!$result_set) {
   die ("Database query failed.");

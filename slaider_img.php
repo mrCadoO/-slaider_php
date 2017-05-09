@@ -1,6 +1,7 @@
 <?php
-global $kol_swich;global $target;
+include("session.php");
 include("functions.php");
+global $kol_swich;global $target;
 	conection();
 	$file_types = array('png', 'jpg', 'jpeg', 'xlsx', 'xls', 'doc', 'docx', 'pdf', 'csv');	
 	if(isset($_POST['upload'])){
@@ -8,12 +9,13 @@ include("functions.php");
 		$image = $_FILES['image']['name'];
 		$image1 = validate_type_file($image);
 			if(($image == null) || (!in_array( $image1, $file_types))) {
-
+				$_SESSION["errors"] = "Вы не выбрали объект или объект не подходит по типу.";
 			redirect_to("slaider_img.php");
 			}
 		$sql = "INSERT INTO images (image) VALUES ('$image')";
 		$result = mysqli_query($db, $sql); 
 		move_uploaded_file($_FILES['image']['tmp_name'], $target);
+		$_SESSION["massage"] = "Объект был успешно создан.";
 		redirect_to("slaider_img.php");
 		} 
 		kol_switch();
@@ -22,11 +24,12 @@ include("functions.php");
 ?> 
 
 <?php
-		if(isset($_FILES['image']))
-	$target = "images/".basename($_FILES['image']['name']);
-	echo $target;
+			
+
 
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -42,7 +45,9 @@ include("functions.php");
 <ul id="hide_deletw_btn" type="none">
 <?php $sql = "SELECT * FROM images ORDER BY id";
     $result = mysqli_query($db, $sql);
-    while($row = mysqli_fetch_array($result)){
+     while($row = mysqli_fetch_array($result)){
+    	   
+   
     	
 
 
@@ -50,12 +55,14 @@ include("functions.php");
     echo "<li><div class=\"output_img_for_adm\"><article><img src='images/".$row['image']."'></article></div>"; ?> 
  <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><span>x</span></div></a>
 	</div>
+     
 
 <form method="post" action="edit_img.php?id=<?php echo urlencode($row["id"]); ?>" enctype="multipart/form-data" >
 <?php	
 	echo "<div class=\"file-upload\">";
 	echo "<label>";
-	echo "<input type=\"file\" name=\"image\" onchange=\"getFileName();\" id=\"uploaded-file\">";
+	echo "<input type=\"file\" name=\"image\" onchange=\"getFileName();\" id=\"uploaded-file\" >";
+
 
 	echo "<span>Выберите файл</span>";
 	echo "</label>";	
@@ -70,7 +77,7 @@ include("functions.php");
 
 
     echo "</form>"; ?>
-   <?php }  echo "</ul>" ?>
+   <?php }    echo "</ul>" ?>
 
 
 
@@ -81,12 +88,21 @@ include("functions.php");
     </form></div><br/><br/><br/><br/><br/>
    
 	
-<!--	<script type="text/javascript">
-	function getFileName () {
+	<script type="text/javascript">
+	/* function getFileName () {
 	var file = document.getElementById ('uploaded-file').value;
+	file = file.replace (/\\/g,"/" ).split ('/').pop ();
 	document.getElementById ('file-name').innerHTML = 'Имя файла: ' + file;
-	}
+	document.getElementById("file-name").style.marginLeft = 280 + "px";
+	document.getElementById("file-name").style.width = 350 + "px";
+	} */
+	
 
-</script> -->
+</script> 
+<?php
+echo massage();
+echo errors();
+?>
+
 </body>
 </html>
