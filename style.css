@@ -8,11 +8,83 @@
 	text-align: center;
 	top: 10px;
 	}
-
-	#slaider_form_adm{
 	
-	display: inline-grid;
+	#main_add_file input[type="file"]{
+	display: none;
 	}
+
+	#main_add_file {
+	position: absolute;
+	text-align: center;
+	width: 426px;
+	height: 46px;
+	border-radius: 8px;
+	background: rgb(56, 236, 71);
+	}
+
+	#main_add_file span {
+	line-height: 45px;
+	font-weight:bold;
+	}
+
+	#main_add_file label {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	}
+
+	#main_add_file:hover {
+	background: rgb(56, 236, 71, 0.85);
+	}
+
+	#btn_send_main_file input[type="submit"]{
+	display: none;
+	}
+
+	#btn_send_main_file {
+	position: absolute;
+	text-align: center;
+	width: 80px;
+	height: 46px;
+	border-radius: 8px;
+	background: rgb(56, 236, 71);
+	margin-left: 500px;
+	}
+
+	#btn_send_main_file span {
+	line-height: 45px;
+	font-weight:bold;
+	}
+
+	#btn_send_main_file label {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	}
+
+	#btn_send_main_file:hover {
+	background: rgb(56, 236, 71, 0.85);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	#gmb {
 	position: absolute;
@@ -154,6 +226,14 @@
 	font-weight: bold;
 	margin: 15 auto;
 	width: 155px;
+	}
+
+	#previewImg1{
+		position: absolute;
+		width: 140px;
+		height: 80px;
+		margin-left: 560px;
+		margin-top: -85px;
 	}
 
 
