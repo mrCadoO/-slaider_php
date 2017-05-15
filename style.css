@@ -3,6 +3,23 @@
 	height: 400px;
 	}
 
+	#slaider_form_adm{
+	position: absolute;
+	width: 700px;
+	height: 100px;
+	top: 80px;
+	left: 180px; 
+	}
+
+	ul{
+	padding-top: 130px;
+	}
+
+	#position_for_main_file{
+	padding-top: 45px;
+	padding-left: 50px;
+	}
+
 	#slider { /*положение слайдера*/
 	position: relative;
 	text-align: center;
@@ -19,7 +36,8 @@
 	width: 426px;
 	height: 46px;
 	border-radius: 8px;
-	background: rgb(56, 236, 71);
+	background: rgb(94, 129, 168, 0.3);
+	color: #000;
 	}
 
 	#main_add_file span {
@@ -36,7 +54,8 @@
 	}
 
 	#main_add_file:hover {
-	background: rgb(56, 236, 71, 0.85);
+	background: rgb(94, 129, 168, 0.35);
+	color: #000;
 	}
 
 	#btn_send_main_file input[type="submit"]{
@@ -49,8 +68,8 @@
 	width: 80px;
 	height: 46px;
 	border-radius: 8px;
-	background: rgb(56, 236, 71);
-	margin-left: 500px;
+	background: rgb(94, 129, 168, 0.3);
+	margin-left: 430px;
 	}
 
 	#btn_send_main_file span {
@@ -67,7 +86,7 @@
 	}
 
 	#btn_send_main_file:hover {
-	background: rgb(56, 236, 71, 0.85);
+	background: rgb(94, 129, 168, 0.35);
 	}
 
 
@@ -213,14 +232,12 @@
 	background: url('G12.png') no-repeat rgba(37, 35, 35, 0.7) !important;
 	}
 	
-	.data_about_load_img{
-		
-	}
+	
 
 	.massage{
-		position: absolute;
-		top: 0px;
-		left: 900px;
+	position: absolute;
+	top: 0px;
+	left: 900px;
 	border: 2px solid #8D0D19;
 	color: #8D0D19;
 	font-weight: bold;
@@ -229,11 +246,11 @@
 	}
 
 	#previewImg1{
-		position: absolute;
-		width: 140px;
-		height: 80px;
-		margin-left: 560px;
-		margin-top: -85px;
+	position: absolute;
+	width: 140px;
+	height: 80px;
+	margin-left: 560px;
+	margin-top: -85px;
 	}
 
 

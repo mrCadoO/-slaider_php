@@ -7,7 +7,7 @@ global $kol_swich;global $target;global $index;
 	$file_types = array('png', 'jpg', 'jpeg', 'xlsx', 'xls', 'doc', 'docx', 'pdf', 'csv');	
 	if(isset($_POST['upload'])){
 		if($kol_swich == 12){
-			$_SESSION['massage'] = "Больше загрузить нелья";
+			$_SESSION['massage'] = "Больше загрузить нельZя";
 			redirect_to("slaider_img.php");
 		}
 		$target = "images/".basename($_FILES['image']['name']);
@@ -47,16 +47,15 @@ global $kol_swich;global $target;global $index;
 </head>
 <body>
 <p>Редактирование слайдера</p>
+
 <ul id="hide_deletw_btn" type="none">
 <?php $sql = "SELECT * FROM images ORDER BY id";
     $result = mysqli_query($db, $sql);
      while($row = mysqli_fetch_array($result)){
-    
-   		 $index +=1;	 
-		echo $index;  
+   
 
 
-
+			
     echo "<li><div class=\"output_img_for_adm\"><article><img src='images/".$row['image']."'></article></div>"; ?> 
  <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><span>x</span></div></a>
 	</div>
@@ -66,7 +65,7 @@ global $kol_swich;global $target;global $index;
 <?php	
 	echo "<div class=\"file-upload\">";
 	echo "<label>";
-	echo "<input type=\"file\" name=\"image\" multiple=\"true\"  onchange=\"preview(this.value)\" id=\"uploaded-file{$index}\" >";
+	echo "<input type=\"file\" name=\"image\" id=\"uploaded-file\" >";
 	echo "<span>Выберите файл</span>";
 	echo "</label>";	
 	echo "<div id=\"file-name\"></div></div>";
@@ -78,28 +77,37 @@ global $kol_swich;global $target;global $index;
 	echo "<span><div class=\"btn_send_file_label\"></div></span>";
 	echo "</label></li>";
 
-	echo "<img id=\"previewImg{$index}\" />";
+
 
     echo "</form>"; ?>
    <?php }    echo "</ul>" ?>
-
+			
 
 
 	<div id="slaider_form_adm">
 	<form method="post" action="slaider_img.php" enctype="multipart/form-data" >
+	<div id="position_for_main_file">
 	<div id="main_add_file">
 	<label>
-	<input type="file" name="image">
+<input type="file" name="image" id="add_img_to_slaider" multiple="true"  onchange="preview(this.value)" />
 	<span>Добавить элемент в слайдер</span></label></div>
 
 	<div id="btn_send_main_file">
 	<label>
 	<input type="submit" name="upload" value="Загрузить картинку" id="btt_upload_main_form"> 
 	<span>jghfdbnm</span></label></div>
+	</div>
+	<img id="previewImg1" />
     </form></div><br/><br/><br/><br/><br/>
    
 	
-		<!--	<script type="text/javascript">
+	
+<?php
+echo massage();
+echo errors();
+?>
+
+<script type="text/javascript">
 	function onFileSelect(e) {
   	var 
     f = e.target.files[0], 
@@ -110,23 +118,11 @@ global $kol_swich;global $target;global $index;
     place.src = e.target.result;
  	 }
 	};
-	var newLocat ="";
-	for (var i = 1; i < 30; i++) {
- 	newLocat = "#uploaded-file" +i;
 	if(window.File && window.FileReader && window.FileList && window.Blob) {
-			
-  	document.querySelector(newLocat).addEventListener("change", onFileSelect, false);
+  	document.querySelector("#add_img_to_slaider").addEventListener("change", onFileSelect, false);
 	}
-	}
-	//if(newLocat.charAt(newLocat.length-1) == 3){
-		//alert(3);
- 	//document.getElementById("previewImg1").style.marginLeft = 20 + "px";
- //	}
-	</script> --> 
-<?php
-echo massage();
-echo errors();
-?>
+	
+	</script> 
 
 </body>
 </html>
