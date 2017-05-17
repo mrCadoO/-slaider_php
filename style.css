@@ -17,7 +17,7 @@
 
 	#position_for_main_file{
 	padding-top: 45px;
-	padding-left: 50px;
+	padding-left: 70px;
 	}
 
 	#slider { /*положение слайдера*/
@@ -33,11 +33,11 @@
 	#main_add_file {
 	position: absolute;
 	text-align: center;
-	width: 426px;
+	width: 300px;
 	height: 46px;
 	border-radius: 8px;
 	background: rgb(94, 129, 168, 0.3);
-	color: #000;
+	color: #55677d;
 	}
 
 	#main_add_file span {
@@ -55,7 +55,6 @@
 
 	#main_add_file:hover {
 	background: rgb(94, 129, 168, 0.35);
-	color: #000;
 	}
 
 	#btn_send_main_file input[type="submit"]{
@@ -65,11 +64,11 @@
 	#btn_send_main_file {
 	position: absolute;
 	text-align: center;
-	width: 80px;
+	width: 46px;
 	height: 46px;
 	border-radius: 8px;
-	background: rgb(94, 129, 168, 0.3);
-	margin-left: 430px;
+	background: url('G11.1.1.png') no-repeat rgb(94, 129, 168, 0.3);
+	margin-left: 305px;
 	}
 
 	#btn_send_main_file span {
@@ -86,7 +85,7 @@
 	}
 
 	#btn_send_main_file:hover {
-	background: rgb(94, 129, 168, 0.35);
+	background: url('G12.1.1.png') no-repeat rgb(94, 129, 168, 0.35);
 	}
 
 

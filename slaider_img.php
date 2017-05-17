@@ -95,13 +95,11 @@ global $kol_swich;global $target;global $index;
 	<div id="btn_send_main_file">
 	<label>
 	<input type="submit" name="upload" value="Загрузить картинку" id="btt_upload_main_form"> 
-	<span>jghfdbnm</span></label></div>
+	<span></span></label></div>
 	</div>
 	<img id="previewImg1" />
     </form></div><br/><br/><br/><br/><br/>
-   
-	
-	
+
 <?php
 echo massage();
 echo errors();
