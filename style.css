@@ -7,12 +7,12 @@
 	position: absolute;
 	width: 700px;
 	height: 100px;
-	top: 80px;
+	top: 120px;
 	left: 180px; 
 	}
 
 	ul{
-	padding-top: 130px;
+	padding-top: 200px;
 	}
 
 	#position_for_main_file{
@@ -55,19 +55,28 @@
 
 	#main_add_file:hover {
 	background: rgb(94, 129, 168, 0.35);
+	color: #2b323d;
 	}
 
 	#btn_send_main_file input[type="submit"]{
 	display: none;
 	}
 
+	#src_upload_file{
+	opacity: 0.5;
+	}
+
+	#src_upload_file:hover {
+	opacity: 0.8;
+	}
+
 	#btn_send_main_file {
 	position: absolute;
 	text-align: center;
-	width: 46px;
+	width: 44px;
 	height: 46px;
 	border-radius: 8px;
-	background: url('G11.1.1.png') no-repeat rgb(94, 129, 168, 0.3);
+	background: rgb(94, 129, 168, 0.3);
 	margin-left: 305px;
 	}
 
@@ -87,13 +96,16 @@
 	#btn_send_main_file:hover {
 	background: url('G12.1.1.png') no-repeat rgb(94, 129, 168, 0.35);
 	}
+	
+	#delete_img{
+	
+	}
 
 
 
 
 
-
-
+	
 
 
 
@@ -107,19 +119,22 @@
 	#gmb {
 	position: absolute;
 	background: rgba(50, 48, 45, 0.0);
+	border-radius: 2px 2px 2px 2px;
 	width: 24px;
 	height: 24px;
 	margin-top: -196px;
 	margin-left: 511px;
 	text-align: center;
 	color: #fff;
+	font-family: Verdana;
 	}
+
 
 	ul li:hover #gmb{
 	background: rgba(50, 48, 45, 1.0);
 	}
 
-	#gmb span{
+	#delete_elemet span{
 	visibility: hidden;
 	}
 
@@ -248,7 +263,7 @@
 	position: absolute;
 	width: 140px;
 	height: 80px;
-	margin-left: 560px;
+	margin-left: 75px;
 	margin-top: -85px;
 	}
 

@@ -13,8 +13,8 @@ global $kol_swich;global $target;global $index;
 		$target = "images/".basename($_FILES['image']['name']);
 		$image = $_FILES['image']['name'];
 		$image1 = validate_type_file($image);
-			if(($image == null) || (!in_array( $image1, $file_types))) {
-				$_SESSION["errors"] = "Вы не выбрали объект или объект не подходит по типу.";
+			if(isset($image) || (!in_array( $image1, $file_types))) {
+				$_SESSION["massage"] = "Вы не выбрали объект или объект не подходит по типу.";
 			redirect_to("slaider_img.php");
 			}
 		$sql = "INSERT INTO images (image) VALUES ('$image')";
@@ -24,17 +24,7 @@ global $kol_swich;global $target;global $index;
 		redirect_to("slaider_img.php");
 		} 
 		
-
-
 ?> 
-
-<?php
-			
-
-
-?>
-
-
 
 
 <!DOCTYPE html>
@@ -57,7 +47,9 @@ global $kol_swich;global $target;global $index;
 
 			
     echo "<li><div class=\"output_img_for_adm\"><article><img src='images/".$row['image']."'></article></div>"; ?> 
- <a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><span>x</span></div></a>
+    
+	<div id="delete_elemet">
+ 	<a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><span>x</span></div></a></div>
 	</div>
      
 
@@ -89,23 +81,38 @@ global $kol_swich;global $target;global $index;
 	<div id="position_for_main_file">
 	<div id="main_add_file">
 	<label>
-<input type="file" name="image" id="add_img_to_slaider" multiple="true"  onchange="preview(this.value)" />
+	<input type="file" name="image" id="add_img_to_slaider" multiple="true"  onchange="preview(this.value)" />
 	<span>Добавить элемент в слайдер</span></label></div>
-
 	<div id="btn_send_main_file">
 	<label>
 	<input type="submit" name="upload" value="Загрузить картинку" id="btt_upload_main_form"> 
-	<span></span></label></div>
+	<span><img src="35.png" alt="upload_file" id="src_upload_file"></span></label></div>
 	</div>
 	<img id="previewImg1" />
+	<input type="button" name="sq" id="open" />
     </form></div><br/><br/><br/><br/><br/>
 
 <?php
 echo massage();
 echo errors();
+echo delete_img();
 ?>
 
 <script type="text/javascript">
+
+
+var dialog = document.querySelector('dialog');
+document.querySelector('#open').onclick = function() {
+dialog.show();
+};
+document.querySelector('#close').onclick = function() {
+dialog.close();
+};
+
+
+
+
+
 	function onFileSelect(e) {
   	var 
     f = e.target.files[0], 
@@ -121,6 +128,7 @@ echo errors();
 	}
 	
 	</script> 
+
 
 </body>
 </html>

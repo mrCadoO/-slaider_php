@@ -12,6 +12,7 @@
 
 $sql = "DELETE FROM images WHERE id = {$id} LIMIT 1";
 $result = mysqli_query($db, $sql);
+		$_SESSION["delete_img"] = "елеетфываыва";
 		redirect_to("slaider_img.php");
 	
  
