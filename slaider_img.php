@@ -13,8 +13,8 @@ global $kol_swich;global $target;global $index;
 		$target = "images/".basename($_FILES['image']['name']);
 		$image = $_FILES['image']['name'];
 		$image1 = validate_type_file($image);
-			if(isset($image) || (!in_array( $image1, $file_types))) {
-				$_SESSION["massage"] = "Вы не выбрали объект или объект не подходит по типу.";
+			if(($image == null) || (!in_array( $image1, $file_types))) {
+				$_SESSION["errors"] = "Вы не выбрали объект или объект не подходит по типу.";
 			redirect_to("slaider_img.php");
 			}
 		$sql = "INSERT INTO images (image) VALUES ('$image')";
@@ -24,7 +24,9 @@ global $kol_swich;global $target;global $index;
 		redirect_to("slaider_img.php");
 		} 
 		
-?> 
+
+
+?>  
 
 
 <!DOCTYPE html>
@@ -48,9 +50,9 @@ global $kol_swich;global $target;global $index;
 			
     echo "<li><div class=\"output_img_for_adm\"><article><img src='images/".$row['image']."'></article></div>"; ?> 
     
-	<div id="delete_elemet">
+	
  	<a href="delete_img.php?id=<?php echo urlencode($row['id']); ?>" onclick="return confirm('Are u sure?');" ><div id="gmb"><span>x</span></div></a></div>
-	</div>
+	
      
 
 <form method="post" action="edit_img.php?id=<?php echo urlencode($row["id"]); ?>" enctype="multipart/form-data" >
@@ -89,27 +91,14 @@ global $kol_swich;global $target;global $index;
 	<span><img src="35.png" alt="upload_file" id="src_upload_file"></span></label></div>
 	</div>
 	<img id="previewImg1" />
-	<input type="button" name="sq" id="open" />
     </form></div><br/><br/><br/><br/><br/>
 
 <?php
 echo massage();
 echo errors();
-echo delete_img();
 ?>
 
 <script type="text/javascript">
-
-
-var dialog = document.querySelector('dialog');
-document.querySelector('#open').onclick = function() {
-dialog.show();
-};
-document.querySelector('#close').onclick = function() {
-dialog.close();
-};
-
-
 
 
 
